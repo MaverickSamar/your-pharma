@@ -1,7 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 
-// const { customer, products, shopping } = require('./api');
+const customer = require('./src/api/customer');
+const products = require('./src/api/product');
+const shopping = require('./src/api/shopping');
 
 //handling errors
 
@@ -16,9 +18,9 @@ module.exports = async(app) => {
 
     //api
 
-    // customer(app);
-    // products(app);
-    // shopping(app);
+    customer(app);
+    products(app);
+    shopping(app);
 
     // handle errors
     // app.use(handlerrors);

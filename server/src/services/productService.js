@@ -3,6 +3,7 @@ const { FormateData } = require('../utils');
 //apierrors
 
 class ProductService{
+    
     constructor(){
         this.repository = new ProductRepository();
     }
