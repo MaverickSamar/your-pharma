@@ -1,4 +1,4 @@
-const CustomerService = require("../services/cutomerService");
+const CustomerService = require("../services/customerService");
 
 const UserAuth = require("./middlewares/auth");
 
