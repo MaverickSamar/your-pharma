@@ -1,3 +1,13 @@
 a{
     text-decoration: none;
 }
+
+.icon-section{
+    display: flex;
+    justify-content: center;
+
+}
+
+.button{
+    margin: 0 2px 0 2px;
+}

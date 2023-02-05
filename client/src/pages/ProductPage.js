@@ -2,7 +2,7 @@ import axios from "../axios";
 import React, { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import { Container, Row, Col, Badge, ButtonGroup, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Badge, ButtonGroup, Form, Button, Card } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Loading from "../componenets/Loading";
@@ -17,12 +17,12 @@ const ProductPage = () => {
     const user = useSelector((state) => state.user);
     const [product, setProduct] = useState(null);
     const [similar, setSimilar] = useState(null);
-    // const [addToCart, { isSuccess }] = useAddToCartMutation();
+    const [addToCart, { isSuccess }] = useAddToCartMutation();
 
     // const handleDragStart = (e) => e.preventDefault();
     // useEffect(() => {
     //     axios.get(`/products/${id}`).then(({ data }) => {
-    //         setProduct(data.product);
+    //         setProduct(data[0]);
     //         setSimilar(data.similar);
     //     });
     // }, [id]);
@@ -36,35 +36,37 @@ const ProductPage = () => {
         1024: { items: 3 },
     };
 
-    // const images = product.pictures.map((picture) => 
+    // const images = product.banner.map((picture) => 
     // <img className="product__carousel--image" src={picture.url} onDragStart={handleDragStart} alt="product"/>);
 
-    let similarProducts = [];
-    if (similar) {
-        similarProducts = similar.map((product, idx) => (
-            <div className="item" data-value={idx}>
-                <SimilarProduct {...product} />
-            </div>
-        ));
-    }
+    // let similarProducts = [];
+    // if (similar) {
+    //     similarProducts = similar.map((product, idx) => (
+    //         <div className="item" data-value={idx}>
+    //             <SimilarProduct {...product} />
+    //         </div>
+    //     ));
+    // }
 
     return (
         <Container className="pt-4" style={{ position: "relative" }}>
             <Row>
                 <Col lg={6}>
-                    <AliceCarousel mouseTracking controlsStrategy="alternate" />
-                    {/* items={images} */}
+                    {/* <AliceCarousel mouseTracking controlsStrategy="alternate" /> */}
+                    <Card>
+                    <Card.Img variant="top" src="https://newassets.apollo247.com/pub/media/catalog/product/t/h/thy0019.jpg" />
+                    </Card>
                 </Col>
                 <Col lg={6} className="pt-4">
-                    <h1>{product.name}</h1>
+                    <h1>Thyronorm</h1>
                     <p>
-                        <Badge bg="primary">{product.category}</Badge>
+                        <Badge bg="primary">Pills</Badge>
                     </p>
-                    <p className="product__price">${product.price}</p>
+                    <p className="product__price">₹500</p>
                     <p style={{ textAlign: "justify" }} className="py-3">
-                        <strong>Description:</strong> {product.description}
+                        <strong>Description :</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, ipsam?
                     </p>
-                    {user && !user.isAdmin && (
+                    {/* {user && !user.isAdmin && ( */}
                         <ButtonGroup style={{ width: "90%" }}>
                             <Form.Select size="lg" style={{ width: "40%", borderRadius: "0" }}>
                                 <option value="1">1</option>
@@ -78,19 +80,19 @@ const ProductPage = () => {
                                 Add to cart
                             </Button>
                         </ButtonGroup>
-                    )}
+                    {/*close brace*/}
                     {user && user.isAdmin && (
                         <LinkContainer to={`/product/${product._id}/edit`}>
                             <Button size="lg">Edit Product</Button>
                         </LinkContainer>
                     )}
-                    <ToastMessage bg="info" title="Added to cart" body={`${product.name} is in your cart`} />
+                    <ToastMessage bg="info" title="Added to cart" body={`Thyronorm is in your cart`} />
                 </Col>
             </Row>
             <div className="my-4">
                 <h2>Similar Products</h2>
                 <div className="d-flex justify-content-center align-items-center flex-wrap">
-                    <AliceCarousel mouseTracking items={similarProducts} responsive={responsive} controlsStrategy="alternate" />
+                    <AliceCarousel mouseTracking responsive={responsive} controlsStrategy="alternate" />
                 </div>
             </div>
         </Container>

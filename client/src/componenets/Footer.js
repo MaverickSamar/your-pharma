@@ -8,72 +8,42 @@ import {
   MDBRow,
   MDBBtn,
 } from "mdb-react-ui-kit";
+import {Button} from 'react-bootstrap';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import GoogleIcon from '@mui/icons-material/Google';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { Col, Row } from "react-bootstrap";
 import './Footer.css';
+import LinkedIn from "@mui/icons-material/LinkedIn";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <MDBFooter className="text-center" color="white" bgColor="dark">
       <MDBContainer className="p-4">
-      <section className='mb-4'>
-          <MDBBtn
-            floating
-            className='m-1'
-            style={{ backgroundColor: '#3b5998' }}
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab icon='facebook-f' />
-          </MDBBtn>
-
-          <MDBBtn
-            floating
-            className='m-1'
-            style={{ backgroundColor: '#55acee' }}
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab icon='twitter' />
-          </MDBBtn>
-
-          <MDBBtn
-            floating
-            className='m-1'
-            style={{ backgroundColor: '#dd4b39' }}
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab icon='google' />
-          </MDBBtn>
-          <MDBBtn
-            floating
-            className='m-1'
-            style={{ backgroundColor: '#ac2bac' }}
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab icon='instagram' />
-          </MDBBtn>
-
-          <MDBBtn
-            floating
-            className='m-1'
-            style={{ backgroundColor: '#0082ca' }}
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab icon='linkedin-in' />
-          </MDBBtn>
-
-          <MDBBtn
-            floating
-            className='m-1'
-            style={{ backgroundColor: '#333333' }}
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab icon='github' />
-          </MDBBtn>
+      <section className='mb-4 icon-section'>
+          <Button className="button">
+            <FacebookIcon/>
+          </Button>
+          <Button className="button">
+            <TwitterIcon/>
+          </Button>
+          <Button className="button">
+            <GoogleIcon/>
+          </Button>
+          <Button className="button">
+            <InstagramIcon/>
+          </Button>
+          <Button className="button">
+            <LinkedIn/>
+          </Button>
+          <a href="https://github.com/MaverickSamar/your-pharma">
+          <Button className="button">
+            <GitHubIcon/>
+          </Button> 
+          </a>
         </section>
         <section className="">
           <form action="">
@@ -106,12 +76,9 @@ const Footer = () => {
           <Row>
             <Col>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. In
-                perferendis sapiente quibusdam voluptatum maiores, tenetur quo
-                perspiciatis incidunt ea ratione, esse reprehenderit?
-                Laboriosam, alias necessitatibus harum deleniti delectus atque
-                commodi ea qui quaerat corrupti molestiae culpa. Minima
-                voluptatum placeat tempore.
+              Your Pharma Healthcare is a privately held India based company with a focus on the development, manufacturing and sale of high quality and affordable generic pharmaceutical products worldwide.
+              <br/>
+              Our vision is to provide the best services and quality products around the world.
               </p>
             </Col>
             <Col>

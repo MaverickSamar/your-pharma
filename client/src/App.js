@@ -8,6 +8,8 @@ import ProductPage from './pages/ProductPage';
 import CategoryPage from './pages/Category';
 import About from './pages/About';
 import Footer from './componenets/Footer';
+import Products from './pages/Products';
+import Contact from './pages/Contact';
 function App() {
   return (
     <div className="App">
@@ -19,11 +21,13 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/about" element={<About/>}/>
-          <Route path="/products" element= {<ProductPage/>}/>
+          <Route path="/products" element= {<Products/>}/>
+          <Route path="/productprev" element= {<ProductPage/>}/>
+          <Route path="/contact" element= {<Contact/>}/>
           <Route path='/category' element={<CategoryPage/>}/>
         </Routes>
         <br/>
-        
+
         <Footer/>
       </BrowserRouter>
     </div>

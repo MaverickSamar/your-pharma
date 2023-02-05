@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import categories from "../categories";
 import Footer from '../componenets/Footer'
 import "./Home.css";
+import About from './About';
+import Contact from './Contact';
 const Home = () => {
   return (
     <div>
@@ -16,8 +18,8 @@ const Home = () => {
             <img src="" alt="" />
         </div>
         <div className="recent-products-container container mt-4">
-                <h2>Products</h2>
-                <Row>
+            <h2>Products</h2>
+            <Row>
                     {categories.map((category) => (
                         <LinkContainer to={`/category/${category.name.toLocaleLowerCase()}`}>
                             <Col md={4}>
@@ -27,14 +29,18 @@ const Home = () => {
                             </Col>
                         </LinkContainer>
                     ))}
-                </Row>
+            </Row>
 
-                <div>
-                <Link to='/catergory/all' style={{textAlign: "right", display:"block", textDecoration:"none"}}>
+            <div>
+                <Link to='/products' style={{textAlign: "right", display:"block", textDecoration:"none"}}>
                     See more {">>"}
                 </Link>
-                </div>
             </div>
+        </div>
+        <About/>
+        <Contact/>
+
+
 
     </div>
   )
