@@ -1,16 +1,17 @@
 const { CustomerModel, AddressModel } = require('../models');
 
+
 class CustomerRepository {
 
     async CreateCustomer({
-        email, password, phone, salt
+        username, email, password, salt
     }){
         try{
             const customer = new CustomerModel({
+                username,
                 email,
-                passsword,
+                password,
                 salt,
-                phone,
                 address: []
             })
             const customerResult = await customer.save();
@@ -73,8 +74,10 @@ class CustomerRepository {
         }
     }
 
-    async AddCartItem(customerId, product, qty, isRemove){
-        try{
+    async AddCartItem(customerId, product, qty, isRemove)
+    {
+        try
+        {
             const profile = await CustomerModel.findById(customerId).populate('cart.product');
 
             if(profile)

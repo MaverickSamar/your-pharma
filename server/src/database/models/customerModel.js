@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const CustomerSchema = new Schema({
+    username: String,
     email: String,
     passsword: String,
     salt: String,
-    phone: String,
     address:[
         {type: Schema.Types.ObjectId, ref: 'address', require: true}
     ],

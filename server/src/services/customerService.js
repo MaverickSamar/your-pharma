@@ -17,11 +17,14 @@ class CustomerService
 
             if(existingCustomer)
             {
-                const validPassword = await ValidatePassword(password, existingCustomer.passsword, existingCustomer.salt);
+                console.log("customer exists");
+                const validPassword = await ValidatePassword(password, existingCustomer.password, existingCustomer.salt);
+                console.log(validPassword);
 
                 if(validPassword)
                 {
                     const token = await GenerateSignature({email: existingCustomer.email, _id: existingCustomer._id});
+                    console.log(token);
                     return FormateData({id: existingCustomer._id, token});
                 }
             }
@@ -40,14 +43,17 @@ class CustomerService
 
     async SignUp(userInputs)
     {
-        const { email, passsword, username } = userInputs;
+        const { username, email, password } = userInputs;
 
         try{
             let salt = await GenerateSalt();
 
             let userPassword = await GeneratePassword(password, salt);
 
-            const existingCustomer = await this.repository.CreateCustomer({email, password: userPassword. phone, salt});
+            const existingCustomer = await this.repository.CreateCustomer({username, email, password: userPassword, salt});
+
+            console.log(existingCustomer, "existing customer");
+            console.log(userPassword, "userPassword");
 
             const token = await GenerateSignature({email: email, _id: existingCustomer._id});
 

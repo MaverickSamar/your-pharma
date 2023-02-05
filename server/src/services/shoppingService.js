@@ -13,7 +13,6 @@ class ShoppingService{
 
         //verify the txn number with payment logs
 
-
         try{
 
             const orderResult = await this.repository.CreateNewOrder(_id, txnNumber);

@@ -1,0 +1,9 @@
+.para-div{
+
+    text-align: center;
+}
+
+.img-col{
+    display: flex;
+    justify-content: center;
+}

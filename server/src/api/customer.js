@@ -3,17 +3,19 @@ const CustomerService = require("../services/customerService");
 const UserAuth = require("./middlewares/auth");
 
 module.exports = (app) => {
+    
     const service = new CustomerService();
 
     app.get("/", (req, res, next) => {
-        return res.status(200).json({"msg" : "Hello from 8000"})
+
+        return res.status(200).json({"msg" : "Hello from 8000"});
     });
 
     app.post("/customer/signup", async(req, res, next) => {
-        try{
-            const {email, password, phone} = req.body;
+        try{ 
+            const {username, email, password} = req.body;
 
-            const { data} = await service.SignIn({email, password, phone});
+            const { data} = await service.SignUp({username, email, password});
 
             return res.status(200).json(data);
         }
@@ -30,7 +32,7 @@ module.exports = (app) => {
             const {email, password } = req.body;
 
             const {data} = await service.SignIn({email, password});
-
+            console.log(data);
             return res.status(200).json(data);
         }
         catch(error)

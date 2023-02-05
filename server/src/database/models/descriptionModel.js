@@ -6,6 +6,7 @@ const DescriptionSchema = new Schema({
     description: String,
     drugs: String,
     doses: String,
+    // sideeffects: String,
     usage: String
 });
 
